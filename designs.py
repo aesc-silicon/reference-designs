@@ -7,7 +7,9 @@
 Default output is one tab-separated line per design:
     name  process  path  topcell
 Paths are printed relative to this repository unless --absolute is given.
-Designs opt into consumers via their "tools" list (gdscheck, gdsfill).
+Designs opt into consumers via their "tools" list (gdscheck, gdsfill). An
+empty list keeps a design in the manifest without any consumer running it,
+e.g. while a tool does not support its process yet.
 """
 
 import argparse
@@ -40,8 +42,8 @@ def check(designs):
         if not (ROOT / d["path"]).is_file():
             errors.append(f"{name}: file not found: {d['path']}")
         tools = d.get("tools")
-        if not isinstance(tools, list) or not tools:
-            errors.append(f"{name}: 'tools' must be a non-empty list")
+        if not isinstance(tools, list):
+            errors.append(f"{name}: 'tools' must be a list")
         elif set(tools) - set(TOOLS):
             errors.append(f"{name}: unknown tool(s) {sorted(set(tools) - set(TOOLS))}")
     for e in errors:

@@ -1,0 +1,112 @@
+{
+  "name": "gt2n-aes",
+  "process": "gt2n",
+  "topcell": "aes_cipher_top",
+  "artifact": {
+    "path": "gt2n/aes.gds.gz",
+    "sha256": "cfd59a18c55488543fd63945a8ce888393cacb74e8ddde18ceeb5785f0abb37e",
+    "bytes": 2387731,
+    "uncompressed_sha256": "054516f79ea7f3c29d8266dac300a30df07cf2d06303256158616ea41b3b3b2c",
+    "uncompressed_bytes": 18827072,
+    "gzip_mtime": 0
+  },
+  "build": {
+    "repository": "https://github.com/jeffhsu3/OpenROAD-flow-scripts",
+    "branch": "gt2n-fill-sheet",
+    "commit": "6702a7f7a8299470b3a03a0686834cfb83db8323",
+    "commit_scope": "local checkout; includes three commits ahead of its remote-tracking branch at packaging time",
+    "variant": "sgdecap2",
+    "source_path": "flow/results/gt2n/aes/sgdecap2/6_final.gds",
+    "rebuild_working_directory": "flow",
+    "rebuild_command": "make DESIGN_CONFIG=./designs/gt2n/aes/config.mk FLOW_VARIANT=sgdecap2",
+    "tools": {
+      "OpenROAD": "26Q3",
+      "Yosys": "0.69 (9f75ca1f9)",
+      "KLayout": "0.30.2"
+    },
+    "fixes": [
+      {
+        "commit": "49a3f710",
+        "description": "W13 one-pitch fillers and backside taps when W13 is loaded"
+      },
+      {
+        "commit": "c4d2bb07",
+        "description": "mux2_x1 V0 enclosure by M1"
+      },
+      {
+        "commit": "cc346698",
+        "description": "mux2_x1 and W13 decap VG-to-ACT fixes"
+      },
+      {
+        "commit": "6702a7f7",
+        "description": "126 nm staggered split-gate W31 fill decap"
+      }
+    ]
+  },
+  "validation": {
+    "tool": "gdscheck",
+    "commit": "1a0595a33ffce7731efbf53253f96d126d41a1d6",
+    "binary_sha256": "2a5118cc142b1fbe95c0cbbf44c3bd563ba6dcbabb86a4defe4b54a63d37e688",
+    "suite": "main",
+    "includes": [
+      "manufacturing-grid checks",
+      "technology-file constraints",
+      "connectivity-aware checks"
+    ],
+    "runs": [
+      {
+        "tile_um": 20,
+        "threads": 8,
+        "connectivity_enabled": true,
+        "started_utc": "2026-10-20T19:39:08.927641+00:00",
+        "completed_utc": "2026-10-20T19:43:51.822672+00:00",
+        "drc_seconds": 282.685,
+        "wall_seconds": 282.8865820229985,
+        "exit_code": 0,
+        "marker_count": 0,
+        "check_entries": 455,
+        "unique_rule_ids": 348,
+        "report_sha256": "e41a1f3d90ec8d74e658bd174f0b052fba46bf136306219c373acdccccd275c5"
+      },
+      {
+        "tile_um": 7,
+        "threads": 8,
+        "connectivity_enabled": true,
+        "started_utc": "2026-10-20T20:39:37.084438+00:00",
+        "completed_utc": "2026-10-20T20:40:03.283043+00:00",
+        "drc_seconds": 26.032,
+        "wall_seconds": 26.198408677009866,
+        "exit_code": 0,
+        "marker_count": 0,
+        "check_entries": 455,
+        "unique_rule_ids": 348,
+        "report_sha256": "e41a1f3d90ec8d74e658bd174f0b052fba46bf136306219c373acdccccd275c5"
+      }
+    ],
+    "recommended_tile_um": 7,
+    "packaged_gds_run": {
+      "input_path": "gt2n/aes.gds.gz",
+      "input_sha256": "cfd59a18c55488543fd63945a8ce888393cacb74e8ddde18ceeb5785f0abb37e",
+      "tile_um": 7,
+      "threads": 8,
+      "connectivity_enabled": true,
+      "started_utc": "2026-10-20T20:55:17.855139+00:00",
+      "completed_utc": "2026-10-20T20:55:42.820762+00:00",
+      "drc_seconds": 24.786,
+      "wall_seconds": 24.96541111500119,
+      "exit_code": 0,
+      "marker_count": 0,
+      "check_entries": 455,
+      "unique_rule_ids": 348,
+      "report_sha256": "e41a1f3d90ec8d74e658bd174f0b052fba46bf136306219c373acdccccd275c5"
+    }
+  },
+  "timing": {
+    "clock_period_ps": 350,
+    "setup_worst_slack_ps": -31.793,
+    "hold_worst_slack_ps": -10.0358,
+    "source": "flow/logs/gt2n/aes/sgdecap2/6_report.json"
+  },
+  "license": "BSD-3-Clause",
+  "license_notices": "gt2n/aes.LICENSE"
+}

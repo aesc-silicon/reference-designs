@@ -17,7 +17,9 @@ designs per directory:
 ## Manifest
 
 `designs.json` lists every design. `name` must be unique across the whole
-manifest, and `tools` selects which consumers run the design:
+manifest, and `tools` selects which consumers run the design. An empty `tools`
+list keeps a design in the manifest without any consumer running it, for example
+while gdscheck does not support its process yet:
 
 ```json
 {
